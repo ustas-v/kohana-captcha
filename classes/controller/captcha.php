@@ -25,13 +25,13 @@ class Controller_Captcha extends Controller {
 	 *
 	 * @param string $group Config group name
 	 */
-	public function action_index($group = 'default')
+	public function action_index()
 	{
 		// Output the Captcha challenge resource (no html)
 		// Pull the config group name from the URL
-		Captcha::instance($group)->render(FALSE);
+		Captcha::instance()->render(FALSE);
 	}
-	
+
 	public function after()
 	{
 		Captcha::instance()->update_response_session();
